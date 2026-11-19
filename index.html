@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+
 :root {
   --burgundy: #64152F;
 }
@@ -26,7 +27,7 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #fff;
+  background: #ffffff;
 }
 
 body {
@@ -40,6 +41,7 @@ body {
   height: 100dvh;
   min-height: 600px;
   overflow: hidden;
+  background: #ffffff;
 }
 
 /* СҮРӨТТӨР */
@@ -65,7 +67,7 @@ body {
   background-image: url('./IMG_7451.jpeg');
 }
 
-/* ҮСТҮҢКҮ ЖАЗУУ */
+/* АК ТИЛЕК ЖАЗУУСУ */
 
 .top-mark {
   position: absolute;
@@ -80,16 +82,22 @@ body {
 }
 
 .top-mark span:not(.line) {
-  color: var(--burgundy) !important;
+  color: var(--burgundy);
   font-size: 9px;
   letter-spacing: 3px;
-  text-shadow: none !important;
+
+  text-shadow:
+    0 0 3px #ffffff,
+    0 0 7px #ffffff,
+    0 0 12px rgba(255,255,255,.95),
+    0 0 20px rgba(255,255,255,.8);
 }
 
 .top-mark .line {
   width: 30px;
   height: 1px;
   background: var(--burgundy);
+  box-shadow: 0 0 7px white;
 }
 
 /* НЕГИЗГИ ТЕКСТ */
@@ -118,14 +126,23 @@ body {
   opacity: 1;
 }
 
+/* КЫЗ УЗАТУУ САЛТАНАТЫ */
+
 .eyebrow {
   font-size: 9px;
   letter-spacing: 3px;
   margin-bottom: 15px;
 
-  color: var(--burgundy) !important;
-  text-shadow: none !important;
+  color: var(--burgundy);
+
+  text-shadow:
+    0 0 3px #ffffff,
+    0 0 6px #ffffff,
+    0 0 10px #ffffff,
+    0 0 16px rgba(255,255,255,.95);
 }
+
+/* АТАЛЫШ */
 
 .slide-title {
   font-family: 'Cormorant Garamond', serif;
@@ -134,10 +151,19 @@ body {
   line-height: 1.1;
   margin-bottom: 16px;
 
-  color: var(--burgundy) !important;
-  text-shadow: none !important;
-  -webkit-text-stroke: 0 !important;
+  color: var(--burgundy);
+
+  text-shadow:
+    0 0 3px #ffffff,
+    0 0 6px #ffffff,
+    0 0 10px #ffffff,
+    0 0 15px #ffffff,
+    0 0 22px rgba(255,255,255,.95);
+
+  -webkit-text-stroke: 0;
 }
+
+/* НЕГИЗГИ ЧАКЫРУУ ТЕКСТИ */
 
 .slide-copy {
   font-family: 'Cormorant Garamond', serif;
@@ -145,10 +171,19 @@ body {
   font-weight: 600;
   line-height: 1.5;
 
-  color: var(--burgundy) !important;
-  text-shadow: none !important;
-  -webkit-text-stroke: 0 !important;
+  color: var(--burgundy);
+
+  text-shadow:
+    0 0 3px #ffffff,
+    0 0 6px #ffffff,
+    0 0 10px #ffffff,
+    0 0 15px #ffffff,
+    0 0 22px rgba(255,255,255,.95);
+
+  -webkit-text-stroke: 0;
 }
+
+/* АЙДАНА */
 
 .panel-bottom {
   margin-top: 20px;
@@ -159,8 +194,13 @@ body {
 }
 
 .panel-bottom span {
-  color: var(--burgundy) !important;
-  text-shadow: none !important;
+  color: var(--burgundy);
+
+  text-shadow:
+    0 0 3px white,
+    0 0 7px white,
+    0 0 12px white,
+    0 0 18px rgba(255,255,255,.95);
 }
 
 .panel-name {
@@ -181,8 +221,13 @@ body {
   letter-spacing: 2px;
   z-index: 3;
 
-  color: var(--burgundy) !important;
-  text-shadow: none !important;
+  color: var(--burgundy);
+
+  text-shadow:
+    0 0 3px white,
+    0 0 7px white,
+    0 0 12px white,
+    0 0 18px rgba(255,255,255,.95);
 }
 
 /* ҮН БАСКЫЧЫ */
@@ -245,6 +290,7 @@ body {
 /* КИЧИНЕ ЭКРАН */
 
 @media (max-height: 700px) {
+
   .text-panel {
     top: 63%;
   }
@@ -256,7 +302,9 @@ body {
   .panel-bottom {
     margin-top: 12px;
   }
+
 }
+
 </style>
 </head>
 
@@ -326,42 +374,49 @@ body {
 /* ДИКТОРДУН СӨЗДӨРҮ */
 
 const slides = [
+
   {
     start: 0,
     end: 8,
     title: "Ак тилек",
     text: "Кыз узатуу — ак баталар айтылып, жакшы тилектер арналып, жаңы жашоого ак жол кааланган өзгөчө күн."
   },
+
   {
     start: 8,
     end: 17,
     title: "Кубанычтуу күн",
     text: "Урматтуу туугандар, куда-сөөктөр, кадырлуу коноктор! Сиздерди кызыбыз Айдананын кыз узатуу салтанатына чакырабыз."
   },
+
   {
     start: 17,
     end: 24,
     title: "Айдана",
     text: "Бул кубанычтуу күнү биздин бактыбызды тең бөлүшүп, ак тилегиңиздерди арнап, төрүбүздүн көркү болуңуздар."
   },
+
   {
     start: 24,
     end: 32,
     title: "Каракол шаары",
     text: "Салтанатыбыз Каракол шаарында, «Соно» ресторанында өтөт."
   },
+
   {
     start: 32,
     end: 40,
     title: "3-март, 2027-жыл",
     text: "Сиздерди 2027-жылдын 3-март күнү, саат 15:00дө күтөбүз."
   },
+
   {
     start: 40,
     end: 47.36,
     title: "Ак жол, Айдана!",
     text: "Урматтоо менен, Муратбек жана Гүлгаакы. Келишиңиздерди чыдамсыздык менен күтөбүз!"
   }
+
 ];
 
 const narration = document.getElementById("narration");
@@ -408,6 +463,7 @@ function showSlide(index) {
       .classList.toggle("active", !photoAActive);
 
   }, 400);
+
 }
 
 /* ДИКТОР МЕНЕН ТЕКСТТИ ШАЙКЕШТИРҮҮ */
@@ -430,6 +486,7 @@ function synchronizeText() {
 
   progressBar.style.width =
     Math.min(100, time / duration * 100) + "%";
+
 }
 
 /* БАШТОО */
@@ -440,7 +497,10 @@ startButton.addEventListener("click", async () => {
 
     narration.currentTime = 0;
 
+    /* ДИКТОРДУН ҮНҮ 100% */
     narration.volume = 1;
+
+    /* МУЗЫКА 6% */
     music.volume = 0.06;
 
     await narration.play();
@@ -464,11 +524,11 @@ startButton.addEventListener("click", async () => {
 
 });
 
-/* АУДИОНУН УБАКТЫСЫ */
+/* АУДИОНУН УБАКТЫСЫН КӨЗӨМӨЛДӨӨ */
 
 narration.addEventListener("timeupdate", synchronizeText);
 
-/* ҮНДҮ ӨЧҮРҮҮ / КҮЙГҮЗҮҮ */
+/* ҮНДҮ ӨЧҮРҮҮ ЖАНА КҮЙГҮЗҮҮ */
 
 soundToggle.addEventListener("click", () => {
 
