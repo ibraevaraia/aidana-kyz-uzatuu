@@ -22,12 +22,11 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #080706;
+  background: #fff;
 }
 
 body {
   font-family: 'Manrope', sans-serif;
-  color: #17120e;
 }
 
 .invitation {
@@ -37,7 +36,7 @@ body {
   height: 100dvh;
   min-height: 600px;
   overflow: hidden;
-  background: #080706;
+  background: #fff;
 }
 
 /* СҮРӨТТӨР */
@@ -48,7 +47,7 @@ body {
   background-size: cover;
   background-position: center center;
   opacity: 0;
-  transition: opacity 1.8s ease;
+  transition: opacity 1.5s ease;
 }
 
 .photo.active {
@@ -63,7 +62,7 @@ body {
   background-image: url('./IMG_7451.jpeg');
 }
 
-/* ҮСТҮҢКҮ ЖАЗУУ */
+/* ЖОГОРКУ ЖАЗУУ */
 
 .top-mark {
   position: absolute;
@@ -77,37 +76,39 @@ body {
   z-index: 3;
 }
 
-.top-mark span {
+.top-mark span:not(.line) {
   font-size: 9px;
   letter-spacing: 3px;
-  color: #17120e;
-  text-shadow: 0 1px 3px rgba(255,255,255,.8);
+  color: #111 !important;
+  text-shadow: 0 1px 5px white;
 }
 
 .top-mark .line {
   width: 30px;
   height: 1px;
-  background: #17120e;
+  background: #111;
 }
 
-/* ТЕКСТ ПАНЕЛИ — ТУНУК */
+/* НЕГИЗГИ ТЕКСТ */
 
 .text-panel {
   position: absolute;
-  left: 7%;
-  right: 7%;
-  top: 68%;
+  left: 6%;
+  right: 6%;
+  top: 65%;
   transform: translateY(-50%);
-  padding: 15px 10px;
+  padding: 15px 8px;
   text-align: center;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
   z-index: 3;
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 0.8s ease;
 }
 
 .text-panel.show {
@@ -117,9 +118,9 @@ body {
 .eyebrow {
   font-size: 9px;
   letter-spacing: 3px;
-  color: #17120e;
   margin-bottom: 15px;
-  text-shadow: 0 1px 4px rgba(255,255,255,.8);
+  color: #111 !important;
+  text-shadow: 0 1px 5px white;
 }
 
 .slide-title {
@@ -127,18 +128,20 @@ body {
   font-size: clamp(32px, 8vw, 45px);
   font-weight: 600;
   line-height: 1.1;
-  color: #17120e;
   margin-bottom: 16px;
-  text-shadow: 0 1px 5px rgba(255,255,255,.8);
+  color: #111 !important;
+  text-shadow: 0 1px 5px white;
+  -webkit-text-stroke: 0.3px #fff;
 }
 
 .slide-copy {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(19px, 5vw, 24px);
+  font-weight: 600;
   line-height: 1.5;
-  color: #17120e;
-  font-weight: 500;
-  text-shadow: 0 1px 5px rgba(255,255,255,.8);
+  color: #111 !important;
+  text-shadow: 0 1px 5px white;
+  -webkit-text-stroke: 0.2px #fff;
 }
 
 .panel-bottom {
@@ -150,8 +153,8 @@ body {
 }
 
 .panel-bottom span {
-  color: #17120e;
-  text-shadow: 0 1px 4px rgba(255,255,255,.8);
+  color: #111 !important;
+  text-shadow: 0 1px 5px white;
 }
 
 .panel-name {
@@ -170,9 +173,9 @@ body {
   font-size: 8px;
   line-height: 1.8;
   letter-spacing: 2px;
-  color: #17120e;
-  text-shadow: 0 1px 4px rgba(255,255,255,.8);
   z-index: 3;
+  color: #111 !important;
+  text-shadow: 0 1px 5px white;
 }
 
 /* ҮН БАСКЫЧЫ */
@@ -184,9 +187,10 @@ body {
   bottom: 15%;
   transform: translateX(-50%);
   padding: 15px 26px;
-  border: 1px solid #17120e;
-  background: rgba(255,255,255,.85);
-  color: #17120e;
+  border: 1px solid #111;
+  border-radius: 30px;
+  background: rgba(255,255,255,.9);
+  color: #111;
   font-family: 'Manrope', sans-serif;
   font-size: 12px;
   letter-spacing: 1px;
@@ -206,9 +210,9 @@ body {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 1px solid #17120e;
-  background: rgba(255,255,255,.8);
-  color: #17120e;
+  border: 1px solid #111;
+  background: rgba(255,255,255,.85);
+  color: #111;
   font-size: 17px;
 }
 
@@ -226,13 +230,12 @@ body {
   display: block;
   width: 0%;
   height: 100%;
-  background: #17120e;
+  background: #111;
 }
 
 @media (max-height: 700px) {
   .text-panel {
-    top: 65%;
-    padding: 10px;
+    top: 63%;
   }
 
   .slide-title {
@@ -309,6 +312,8 @@ body {
 
 <script>
 
+/* ДИКТОРДУН СӨЗДӨРҮ */
+
 const slides = [
   {
     start: 0,
@@ -350,6 +355,7 @@ const slides = [
 
 const narration = document.getElementById("narration");
 const music = document.getElementById("music");
+
 const panel = document.getElementById("panel");
 const title = document.getElementById("title");
 const copy = document.getElementById("copy");
@@ -361,6 +367,9 @@ const progressBar = document.getElementById("progressBar");
 let currentSlide = -1;
 let photoAActive = true;
 let started = false;
+let fadeTimer = null;
+
+/* СЛАЙД АЛМАШТЫРУУ */
 
 function showSlide(index) {
 
@@ -368,9 +377,11 @@ function showSlide(index) {
 
   currentSlide = index;
 
+  clearTimeout(fadeTimer);
+
   panel.classList.remove("show");
 
-  setTimeout(() => {
+  fadeTimer = setTimeout(() => {
 
     title.textContent = slides[index].title;
     copy.textContent = slides[index].text;
@@ -385,10 +396,12 @@ function showSlide(index) {
     document.getElementById("photoB")
       .classList.toggle("active", !photoAActive);
 
-  }, 500);
+  }, 400);
 }
 
-function update() {
+/* ДИКТОР МЕНЕН ТЕКСТТИ ШАЙКЕШТИРҮҮ */
+
+function synchronizeText() {
 
   if (!started) return;
 
@@ -406,52 +419,50 @@ function update() {
 
   progressBar.style.width =
     Math.min(100, time / duration * 100) + "%";
-
-  if (!narration.paused && !narration.ended) {
-    requestAnimationFrame(update);
-  }
 }
+
+/* БАШТОО */
 
 startButton.addEventListener("click", async () => {
 
-  if (started) return;
-
   try {
+
+    narration.currentTime = 0;
+
+    /* ДИКТОРДУН ҮНҮ 100% */
+    narration.volume = 1;
+
+    /* МУЗЫКА 6% */
+    music.volume = 0.06;
+
+    await narration.play();
 
     started = true;
 
     startButton.classList.add("hidden");
     soundToggle.hidden = false;
 
-    narration.currentTime = 0;
-
-    /* ДИКТОРДУН ҮНҮ — 100% */
-    narration.volume = 1;
-
-    /* МУЗЫКА — 6% */
-    music.volume = 0.06;
-
-    await narration.play();
-
     music.play().catch(() => {
       console.log("Музыка иштетилген жок");
     });
 
-    showSlide(0);
-
-    requestAnimationFrame(update);
+    synchronizeText();
 
   } catch (error) {
 
     started = false;
 
-    startButton.classList.remove("hidden");
-
-    alert("Үн ачылган жок. Дагы бир жолу басып көрүңүз.");
+    alert("Диктордун үнү ачылган жок. Кайра басып көрүңүз.");
 
   }
 
 });
+
+/* АУДИОНУН УБАКТЫСЫН КӨЗӨМӨЛДӨӨ */
+
+narration.addEventListener("timeupdate", synchronizeText);
+
+/* ҮНДҮ ӨЧҮРҮҮ */
 
 soundToggle.addEventListener("click", () => {
 
@@ -464,7 +475,11 @@ soundToggle.addEventListener("click", () => {
 
 });
 
+/* АУДИО БҮТКӨНДӨ */
+
 narration.addEventListener("ended", () => {
+
+  started = false;
 
   panel.classList.remove("show");
 
@@ -473,6 +488,8 @@ narration.addEventListener("ended", () => {
   music.pause();
 
   soundToggle.hidden = true;
+
+  startButton.classList.remove("hidden");
 
 });
 
