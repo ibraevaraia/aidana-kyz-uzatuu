@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aidana | Kyz Uzatuu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #050505;
+    font-family: 'Manrope', sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+.invitation {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    height: 100vh;
+    height: 100svh;
+    min-height: 560px;
+    margin: auto;
+    overflow: hidden;
+    background: #080808;
+}
+
+.photo {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.03);
+    transition: opacity 1.5s ease, transform 8s ease;
+}
+
+.photo.active {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+.photo-one {
+    background-image: url("assets/aidana-portrait.jpeg");
+    background-position: center 38%;
+}
+
+.photo-two {
+    background-image: url("assets/aidana-ornament.jpeg");
+    background-position: center 42%;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.12),
+            rgba(0,0,0,0.05) 35%,
+            rgba(0,0,0,0.75)
+        );
+}
+
+.top-label {
+    position: absolute;
+    top: 35px;
+    left: 20px;
+    right: 20px;
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #e0c99e;
+}
+
+.panel {
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    bottom: 11%;
+    padding: 25px 20px;
+    text-align: center;
+
+    background: rgba(0,0,0,0.70);
+    border: 1px solid rgba(216,194,154,0.45);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.panel.fade {
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+.gold-line {
+    width: 40px;
+    height: 1px;
+    background: #d8c29a;
+    margin: 0 auto 15px;
+}
+
+.eyebrow {
+    color: #d8c29a;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 7vw, 38px);
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.description {
+    font-size: clamp(13px, 3.5vw, 16px);
+    line-height: 1.65;
+    color: #fffaf1;
+}
+
+.name {
+    margin-top: 18px;
+    color: #d8c29a;
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+.progress {
+    position: absolute;
+    bottom: 30px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: rgba(255,255,255,0.25);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #d8c29a;
+}
+
+.start-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 15px 25px;
+    border: 1px solid #d8c29a;
+    border-radius: 40px;
+
+    background: rgba(0,0,0,0.75);
+    color: white;
+
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.start-button.hidden {
+    display: none;
+}
+
+.sound-button {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 18px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 45px;
+    left: 5%;
+    right: 5%;
+    text-align: center;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.65);
+}
+
+@media (max-height: 700px) {
+    .panel {
+        bottom: 9%;
+        padding: 17px;
+    }
+
+    .description {
+        font-size: 13px;
+        line-height: 1.45;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="invitation">
+
+    <div class="photo photo-one active" id="photoOne"></div>
+    <div class="photo photo-two" id="photoTwo"></div>
+
+    <div class="overlay"></div>
+
+    <div class="top-label">
+        АК ТИЛЕК • АК БАТА • АК ЖОЛ
+    </div>
+
+    <section class="panel" id="panel">
+
+        <div class="gold-line"></div>
+
+        <p class="eyebrow" id="eyebrow">
+            КЫЗ УЗАТУУ САЛТАНАТЫ
+        </p>
+
+        <h1 class="title" id="title">
+            Ак тилек
+        </h1>
+
+        <p class="description" id="description">
+            Кыз узатуу — ак баталар айтылып, жакшы тилектер арналып, жаңы жашоого ак жол кааланган өзгөчө күн.
+        </p>
+
+        <div class="name">АЙДАНА</div>
+
+    </section>
+
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <button class="start-button" id="startButton">
+        ▶ ҮН МЕНЕН КӨРҮҮ
+    </button>
+
+    <button class="sound-button" id="soundButton" hidden>
+        ♫
+    </button>
+
+    <div class="footer">
+        СИЗДЕРДИ КУБАНЫЧЫБЫЗГА ОРТОКТОШ БОЛУУГА ЧАКЫРАБЫЗ
+    </div>
+
+    <audio id="narration" src="assets/narration.mp3" preload="auto"></audio>
+    <audio id="music" src="assets/ethno-music.mp3" preload="auto" loop></audio>
+
+</main>
+
+<script>
+
+const narration = document.getElementById("narration");
+const music = document.getElementById("music");
+
+const panel = document.getElementById("panel");
+const title = document.getElementById("title");
+const description = document.getElementById("description");
+const eyebrow = document.getElementById("eyebrow");
+
+const progressBar = document.getElementById("progressBar");
+
+const startButton = document.getElementById("startButton");
+const soundButton = document.getElementById("soundButton");
+
+const photoOne = document.getElementById("photoOne");
+const photoTwo = document.getElementById("photoTwo");
+
+const slides = [
+
+{
+start: 0,
+end: 14.3,
+title: "Ак тилек",
+text: "Кыз узатуу — ак баталар айтылып, жакшы тилектер арналып, жаңы жашоого ак жол кааланган өзгөчө күн. Айдананын кадамы куттуу, келечеги кең, бактысы түбөлүктүү болсун!"
+},
+
+{
+start: 14.3,
+end: 27,
+title: "Сиздерди чакырабыз",
+text: "Ардактуу туугандар, кадырлуу коноктор! Сиздерди сүйүктүү кызыбыз Айдананын кыз узатуу салтанатына чакырабыз! Кубанычыбызга ортоктош болуп, ак тилектериңиздер менен бөлүшүп кетүүгө чакырабыз!"
+},
+
+{
+start: 27,
+end: 30.6,
+title: "Өтүүчү дарек",
+text: "Салтанат Каракол шаарында, «Соно» ресторанында өтөт."
+},
+
+{
+start: 30.6,
+end: 33.6,
+title: "Күнү жана убактысы",
+text: "2027-жылдын 3-мартында, саат 15:00дө башталат."
+},
+
+{
+start: 33.6,
+end: 37.2,
+title: "Той ээлери",
+text: "Той ээлери — Муратбек жана Гүлгаакы."
+},
+
+{
+start: 37.2,
+end: 47.5,
+title: "Ак дасторконубузга кош келиңиздер",
+text: "Сиздерди ак дасторконубуздун төрүнөн орун алып, кубанычыбызга ортоктош болууга чакырабыз! Муратбек жана Гүлгаакы сиздерди чыдамсыздык менен күтөт!"
+}
+
+];
+
+let currentSlide = -1;
+let photoState = false;
+let photoInterval = null;
+
+function showSlide(index) {
+
+    if (index === currentSlide) return;
+
+    currentSlide = index;
+
+    const slide = slides[index];
+
+    panel.classList.add("fade");
+
+    setTimeout(() => {
+
+        title.textContent = slide.title;
+        description.textContent = slide.text;
+
+        eyebrow.textContent = "АЙДАНАНЫН КЫЗ УЗАТУУСУ";
+
+        panel.classList.remove("fade");
+
+    }, 350);
+
+}
+
+function changePhoto() {
+
+    photoState = !photoState;
+
+    if (photoState) {
+
+        photoOne.classList.remove("active");
+        photoTwo.classList.add("active");
+
+    } else {
+
+        photoTwo.classList.remove("active");
+        photoOne.classList.add("active");
+
+    }
+
+}
+
+function updateSlides() {
+
+    const time = narration.currentTime;
+
+    const index = slides.findIndex(
+        slide => time >= slide.start && time < slide.end
+    );
+
+    if (index !== -1) {
+        showSlide(index);
+    }
+
+    if (narration.duration) {
+
+        progressBar.style.width =
+            (time / narration.duration * 100) + "%";
+
+    }
+
+}
+
+async function startInvitation() {
+
+    startButton.classList.add("hidden");
+    soundButton.hidden = false;
+
+    narration.currentTime = 0;
+    music.currentTime = 0;
+
+    narration.volume = 1;
+    music.volume = 0.20;
+
+    try {
+
+        await Promise.all([
+            narration.play(),
+            music.play()
+        ]);
+
+        photoInterval = setInterval(changePhoto, 7500);
+
+    } catch (error) {
+
+        startButton.classList.remove("hidden");
+        alert("Үн иштебей калды. Кайра басып көрүңүз.");
+
+    }
+
+}
+
+startButton.addEventListener("click", startInvitation);
+
+soundButton.addEventListener("click", () => {
+
+    if (narration.paused) {
+
+        narration.play();
+        music.play();
+        soundButton.textContent = "♫";
+
+    } else {
+
+        narration.pause();
+        music.pause();
+        soundButton.textContent = "×";
+
+    }
+
+});
+
+narration.addEventListener("timeupdate", updateSlides);
+
+narration.addEventListener("ended", () => {
+
+    clearInterval(photoInterval);
+
+    title.textContent = "Айдана";
+    description.textContent =
+        "Кубанычыбызга ортоктош болгонуңуздар үчүн чоң рахмат!";
+
+    eyebrow.textContent = "АК ТИЛЕК МЕНЕН";
+
+    progressBar.style.width = "100%";
+
+    music.pause();
+    music.currentTime = 0;
+
+    startButton.textContent = "↻ КАЙРА УГУУ";
+    startButton.classList.remove("hidden");
+
+    soundButton.hidden = true;
+
+});
+
+</script>
+
+</body>
+</html>
