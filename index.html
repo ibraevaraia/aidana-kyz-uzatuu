@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aidana | Kyz Uzatuu</title>
+<title>Айдана | Кыз узатуу</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -16,9 +16,8 @@
 
 body {
     background: #050505;
-    font-family: 'Manrope', sans-serif;
     color: white;
-    overflow: hidden;
+    font-family: 'Manrope', sans-serif;
 }
 
 .invitation {
@@ -27,7 +26,7 @@ body {
     max-width: 560px;
     height: 100vh;
     height: 100svh;
-    min-height: 560px;
+    min-height: 600px;
     margin: auto;
     overflow: hidden;
     background: #080808;
@@ -37,10 +36,10 @@ body {
     position: absolute;
     inset: 0;
     background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat;
     opacity: 0;
-    transform: scale(1.03);
-    transition: opacity 1.5s ease, transform 8s ease;
+    transform: scale(1.02);
+    transition: opacity 1.8s ease, transform 8s ease;
 }
 
 .photo.active {
@@ -49,52 +48,48 @@ body {
 }
 
 .photo-one {
-    background-image: url("assets/aidana-portrait.jpeg");
-    background-position: center 38%;
+    background-image: url("./C324E1C4-7ACD-416E-8458-CB22A9206F98.png");
+    background-position: center 35%;
 }
 
 .photo-two {
-    background-image: url("assets/aidana-ornament.jpeg");
-    background-position: center 42%;
+    background-image: url("./IMG_7451.jpeg");
+    background-position: center 35%;
 }
 
 .overlay {
     position: absolute;
     inset: 0;
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,0.12),
-            rgba(0,0,0,0.05) 35%,
-            rgba(0,0,0,0.75)
-        );
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.12),
+        rgba(0,0,0,0.05) 35%,
+        rgba(0,0,0,0.65)
+    );
 }
 
 .top-label {
     position: absolute;
     top: 35px;
-    left: 20px;
-    right: 20px;
+    left: 15px;
+    right: 15px;
     text-align: center;
-    font-size: 9px;
+    color: #d8c29a;
+    font-size: 10px;
     letter-spacing: 4px;
-    color: #e0c99e;
 }
 
 .panel {
     position: absolute;
     left: 6%;
     right: 6%;
-    bottom: 11%;
-    padding: 25px 20px;
+    bottom: 14%;
+    padding: 24px 19px;
     text-align: center;
-
     background: rgba(0,0,0,0.70);
-    border: 1px solid rgba(216,194,154,0.45);
-
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
+    border: 1px solid rgba(216,194,154,0.55);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
     transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
@@ -104,7 +99,7 @@ body {
 }
 
 .gold-line {
-    width: 40px;
+    width: 42px;
     height: 1px;
     background: #d8c29a;
     margin: 0 auto 15px;
@@ -119,7 +114,7 @@ body {
 
 .title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 7vw, 38px);
+    font-size: clamp(29px, 7vw, 38px);
     font-weight: 500;
     margin-bottom: 12px;
 }
@@ -131,10 +126,44 @@ body {
 }
 
 .name {
-    margin-top: 18px;
+    margin-top: 17px;
     color: #d8c29a;
     font-size: 10px;
     letter-spacing: 5px;
+}
+
+.start-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 25px;
+    border: 1px solid #d8c29a;
+    border-radius: 40px;
+    background: rgba(0,0,0,0.85);
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    z-index: 5;
+}
+
+.start-button.hidden {
+    display: none;
+}
+
+.sound-button {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #d8c29a;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 17px;
+    z-index: 5;
 }
 
 .progress {
@@ -150,67 +179,28 @@ body {
     height: 100%;
     width: 0%;
     background: #d8c29a;
-}
-
-.start-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    padding: 15px 25px;
-    border: 1px solid #d8c29a;
-    border-radius: 40px;
-
-    background: rgba(0,0,0,0.75);
-    color: white;
-
-    font-size: 13px;
-    letter-spacing: 1px;
-    cursor: pointer;
-}
-
-.start-button.hidden {
-    display: none;
-}
-
-.sound-button {
-    position: absolute;
-    top: 25px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.4);
-    background: rgba(0,0,0,0.6);
-    color: white;
-    font-size: 18px;
+    transition: width 0.3s linear;
 }
 
 .footer {
     position: absolute;
-    bottom: 45px;
+    bottom: 48px;
     left: 5%;
     right: 5%;
     text-align: center;
     font-size: 8px;
     letter-spacing: 2px;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.7);
 }
 
 @media (max-height: 700px) {
     .panel {
-        bottom: 9%;
+        bottom: 12%;
         padding: 17px;
     }
 
     .description {
         font-size: 13px;
-        line-height: 1.45;
-    }
-
-    .title {
-        font-size: 28px;
     }
 }
 </style>
@@ -230,23 +220,20 @@ body {
     </div>
 
     <section class="panel" id="panel">
-
         <div class="gold-line"></div>
 
         <p class="eyebrow" id="eyebrow">
             КЫЗ УЗАТУУ САЛТАНАТЫ
         </p>
 
-        <h1 class="title" id="title">
-            Ак тилек
-        </h1>
+        <h1 class="title" id="title">Ак тилек</h1>
 
         <p class="description" id="description">
             Кыз узатуу — ак баталар айтылып, жакшы тилектер арналып, жаңы жашоого ак жол кааланган өзгөчө күн.
+            Айдананын кадамы куттуу, келечеги кең, бактысы түбөлүктүү болсун!
         </p>
 
         <div class="name">АЙДАНА</div>
-
     </section>
 
     <div class="progress">
@@ -265,13 +252,18 @@ body {
         СИЗДЕРДИ КУБАНЫЧЫБЫЗГА ОРТОКТОШ БОЛУУГА ЧАКЫРАБЫЗ
     </div>
 
-    <audio id="narration" src="assets/narration.mp3" preload="auto"></audio>
-    <audio id="music" src="assets/ethno-music.mp3" preload="auto" loop></audio>
+    <audio id="narration"
+    src="./ElevenLabs_Untitled_project.mp3"
+    preload="auto"></audio>
+
+    <audio id="music"
+    src="./kyz_uzatuu_music.mp3"
+    preload="auto"
+    loop></audio>
 
 </main>
 
 <script>
-
 const narration = document.getElementById("narration");
 const music = document.getElementById("music");
 
@@ -281,7 +273,6 @@ const description = document.getElementById("description");
 const eyebrow = document.getElementById("eyebrow");
 
 const progressBar = document.getElementById("progressBar");
-
 const startButton = document.getElementById("startButton");
 const soundButton = document.getElementById("soundButton");
 
@@ -289,188 +280,137 @@ const photoOne = document.getElementById("photoOne");
 const photoTwo = document.getElementById("photoTwo");
 
 const slides = [
-
 {
-start: 0,
-end: 14.3,
 title: "Ак тилек",
 text: "Кыз узатуу — ак баталар айтылып, жакшы тилектер арналып, жаңы жашоого ак жол кааланган өзгөчө күн. Айдананын кадамы куттуу, келечеги кең, бактысы түбөлүктүү болсун!"
 },
-
 {
-start: 14.3,
-end: 27,
 title: "Сиздерди чакырабыз",
 text: "Ардактуу туугандар, кадырлуу коноктор! Сиздерди сүйүктүү кызыбыз Айдананын кыз узатуу салтанатына чакырабыз! Кубанычыбызга ортоктош болуп, ак тилектериңиздер менен бөлүшүп кетүүгө чакырабыз!"
 },
-
 {
-start: 27,
-end: 30.6,
 title: "Өтүүчү дарек",
-text: "Салтанат Каракол шаарында, «Соно» ресторанында өтөт."
+text: "Салтанат Каракол шаарында өтөт."
 },
-
 {
-start: 30.6,
-end: 33.6,
+title: "Ресторан",
+text: "«СОНО» рестораны."
+},
+{
 title: "Күнү жана убактысы",
-text: "2027-жылдын 3-мартында, саат 15:00дө башталат."
+text: "2027-жыл, 3-март. Башталышы саат 15:00дө."
 },
-
 {
-start: 33.6,
-end: 37.2,
 title: "Той ээлери",
-text: "Той ээлери — Муратбек жана Гүлгаакы."
-},
-
-{
-start: 37.2,
-end: 47.5,
-title: "Ак дасторконубузга кош келиңиздер",
-text: "Сиздерди ак дасторконубуздун төрүнөн орун алып, кубанычыбызга ортоктош болууга чакырабыз! Муратбек жана Гүлгаакы сиздерди чыдамсыздык менен күтөт!"
+text: "Муратбек жана Гүлгаакы сиздерди ак дасторконубуздун төрүнөн орун алып, кубанычыбызга ортоктош болууга чыдамсыздык менен күтөт!"
 }
-
 ];
 
 let currentSlide = -1;
 let photoState = false;
-let photoInterval = null;
+let photoInterval;
+let slideTimeout;
+let started = false;
 
 function showSlide(index) {
-
     if (index === currentSlide) return;
 
     currentSlide = index;
-
     const slide = slides[index];
 
     panel.classList.add("fade");
 
-    setTimeout(() => {
+    clearTimeout(slideTimeout);
 
+    slideTimeout = setTimeout(() => {
         title.textContent = slide.title;
         description.textContent = slide.text;
-
         eyebrow.textContent = "АЙДАНАНЫН КЫЗ УЗАТУУСУ";
-
         panel.classList.remove("fade");
-
     }, 350);
-
 }
 
 function changePhoto() {
-
     photoState = !photoState;
 
-    if (photoState) {
-
-        photoOne.classList.remove("active");
-        photoTwo.classList.add("active");
-
-    } else {
-
-        photoTwo.classList.remove("active");
-        photoOne.classList.add("active");
-
-    }
-
+    photoOne.classList.toggle("active", !photoState);
+    photoTwo.classList.toggle("active", photoState);
 }
 
 function updateSlides() {
+    if (!narration.duration || !isFinite(narration.duration)) return;
 
     const time = narration.currentTime;
+    const duration = narration.duration;
 
-    const index = slides.findIndex(
-        slide => time >= slide.start && time < slide.end
+    const progress = time / duration * 100;
+    progressBar.style.width = progress + "%";
+
+    const index = Math.min(
+        slides.length - 1,
+        Math.floor((time / duration) * slides.length)
     );
 
-    if (index !== -1) {
-        showSlide(index);
-    }
-
-    if (narration.duration) {
-
-        progressBar.style.width =
-            (time / narration.duration * 100) + "%";
-
-    }
-
+    showSlide(index);
 }
 
 async function startInvitation() {
-
-    startButton.classList.add("hidden");
-    soundButton.hidden = false;
-
-    narration.currentTime = 0;
-    music.currentTime = 0;
-
-    narration.volume = 1;
-    music.volume = 0.20;
+    if (started) {
+        narration.currentTime = 0;
+    }
 
     try {
+        await narration.play();
+        started = true;
 
-        await Promise.all([
-            narration.play(),
-            music.play()
-        ]);
+        music.volume = 0.20;
+        music.play().catch(() => {});
 
+        startButton.classList.add("hidden");
+        soundButton.hidden = false;
+
+        clearInterval(photoInterval);
         photoInterval = setInterval(changePhoto, 7500);
 
     } catch (error) {
-
-        startButton.classList.remove("hidden");
-        alert("Үн иштебей калды. Кайра басып көрүңүз.");
-
+        alert("Диктордун үнү ачылган жок. Аудио файлдын атын текшерүү керек.");
     }
-
 }
 
 startButton.addEventListener("click", startInvitation);
 
 soundButton.addEventListener("click", () => {
-
     if (narration.paused) {
-
         narration.play();
-        music.play();
+        music.play().catch(() => {});
         soundButton.textContent = "♫";
-
     } else {
-
         narration.pause();
         music.pause();
-        soundButton.textContent = "×";
-
+        soundButton.textContent = "▶";
     }
-
 });
 
 narration.addEventListener("timeupdate", updateSlides);
 
 narration.addEventListener("ended", () => {
-
     clearInterval(photoInterval);
 
-    title.textContent = "Айдана";
+    title.textContent = "Ак тилек менен";
     description.textContent =
         "Кубанычыбызга ортоктош болгонуңуздар үчүн чоң рахмат!";
 
-    eyebrow.textContent = "АК ТИЛЕК МЕНЕН";
+    eyebrow.textContent = "АЙДАНА";
 
     progressBar.style.width = "100%";
 
     music.pause();
     music.currentTime = 0;
 
-    startButton.textContent = "↻ КАЙРА УГУУ";
-    startButton.classList.remove("hidden");
-
     soundButton.hidden = true;
 
+    startButton.textContent = "↻ КАЙРА КӨРҮҮ";
+    startButton.classList.remove("hidden");
 });
 
 </script>
